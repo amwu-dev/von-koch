@@ -108,13 +108,13 @@ def cross(t, a, order):
 #color("white")
 #bgcolor("black")
 #screen = turtle.Screen()
-size = 77
+size = 3333
 order = 3
 # Ensure snowflake is centred
-penup()
-backward(size/1.732)
-left(30)
-pendown()
+# penup()
+# backward(size/1.732)
+# left(30)
+# pendown()
 
 # Make it fast
 tracer(100)
@@ -123,7 +123,8 @@ hideturtle()
 #begin_fill()
 t = turtle.Turtle()
 #n9r13(t,size, order)
-cross(t, size, order)
+#cross(t, size, order)
+hexagon(size, order)
 #end_fill()
 # Make the last parts appear
 update()
