@@ -19,6 +19,47 @@ def hexagon(a, order):
     else:
         forward(a)
 
+def n8r14(a, order):
+    if order > 0:
+        for t in [ 90, -90, -90, 0, 90, 90, -90, 0]:
+            n8r14(a/4, order-1)
+            #forward(a)
+            left(t)
+    else:
+        forward(a)
+
+def n9r13(t, a, order):
+    if order > 0:
+        n9r13(t, a/3, order-1)
+        # Save current position and direction
+        position = t.position()
+        heading = t.heading()
+
+        # Left branch
+        t.left(90)
+        n9r13(t, a/3, order-1)
+        t.left(-90)
+        n9r13(t,a/3, order-1)
+        t.left(-90)
+        n9r13(t,a/3, order-1)
+        t.left(-90)
+        n9r13(t,a/3, order-1)
+
+        t.penup()
+        t.setposition(position)
+        t.setheading(heading)
+        t.pendown()
+        t.left(-90)
+        n9r13(t,a/3, order-1)
+        t.left(90)
+        n9r13(t,a/3, order-1)
+        t.left(90)
+        n9r13(t,a/3, order-1)
+        t.left(-90)
+        n9r13(t,a/3, order-1)
+
+    else:
+        t.forward(a)
 
 # Test
 #koch(100, 0)
@@ -26,8 +67,8 @@ def hexagon(a, order):
 #color("white")
 #bgcolor("black")
 #screen = turtle.Screen()
-size = 77777
-order = 7
+size = 3333
+order = 3
 # Ensure snowflake is centred
 # penup()
 # backward(size/1.732)
@@ -39,10 +80,9 @@ tracer(100)
 hideturtle()
 
 #begin_fill()
-
-# Three Koch curves
+#t = turtle.Turtle()
+#n9r13(t,size, order)
 hexagon(size, order)
-
 #end_fill()
 # Make the last parts appear
 update()
