@@ -130,13 +130,68 @@ def cross(t, a, order):
     else:
         t.forward(a)
 
+
+# method to draw ellipse
+def draw(rad):
+    
+  # rad --> radius of arc
+  for i in range(2):
+    
+    # two arcs
+    turtle.circle(rad,90)
+    turtle.circle(rad//2,90)
+
+
+
+
+# custom heptagon von-koch like fractal
+def geeks4geeksellipses():
+# Set screen color
+    screen = turtle.Screen()
+
+    screen.bgcolor('black')
+
+    # Colors
+    col=['violet','blue','green','yellow',
+        'orange','red']
+
+    # some integers
+    val=10
+    ind=0
+
+    # turtle speed
+    turtle.speed(100)
+
+    # loop for multiple ellipse
+    for i in range(36):
+        
+        # oriented the ellipse at angle = -val
+        turtle.seth(-val)
+        
+        # color of ellipse
+        turtle.color(col[ind])
+        
+        # to access different color
+        if ind==5:
+            ind=0
+        else:
+            ind+=1
+        
+        # calling method
+        draw(80)
+        
+        # orientation change
+        val+=10
+
+    # for hiding the turtle
+    turtle.hideturtle()
 # Test
 #koch(100, 0)
 # Choose colours and size
 #color("white")
 #bgcolor("black")
 #screen = turtle.Screen()
-size = 3333
+size = 7777
 order = 3
 # Ensure snowflake is centred
 # penup()
@@ -145,8 +200,8 @@ order = 3
 # pendown()
 
 # Make it fast
-tracer(100)
-hideturtle()
+#tracer(100)
+#hideturtle()
 
 #begin_fill()
 t = turtle.Turtle()
